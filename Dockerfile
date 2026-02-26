@@ -7,8 +7,7 @@ FROM node:20.17-alpine3.19
 WORKDIR /home/app/
 
 # Copying package-lock.json before package.json to leverage Docker's layer caching for npm install
-COPY package-lock.json package-lock.json
-COPY package.json package.json
+COPY package*.json .
 RUN npm install
 
 # Copying only the necessary files for the application to reduce the image size and improve build times
